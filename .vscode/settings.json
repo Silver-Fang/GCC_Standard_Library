@@ -13,6 +13,12 @@
 		"string": "cpp",
 		"cwctype": "cpp",
 		"chrono": "cpp",
-		"cstdlib": "cpp"
+		"cstdlib": "cpp",
+		"__config": "cpp",
+		"__config_site": "cpp",
+		"limits": "cpp",
+		"utility": "cpp",
+		"tuple": "cpp",
+		"cmath": "cpp"
 	}
 }

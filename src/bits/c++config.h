@@ -936,8 +936,10 @@ namespace __gnu_cxx
 /* Defined if shared_ptr reference counting should use atomic operations. */
 #define _GLIBCXX_HAVE_ATOMIC_LOCK_POLICY 1
  
+#ifndef ARDUINO_ARCH_AVR
 /* Define to 1 if you have the `at_quick_exit' function. */
-#define _GLIBCXX_HAVE_AT_QUICK_EXIT 1
+#define _GLIBCXX_HAVE_AT_QUICK_EXIT 0
+#endif
  
 /* Define to 1 if the target assembler supports thread-local storage. */
 /* #undef _GLIBCXX_HAVE_CC_TLS */
@@ -1153,8 +1155,10 @@ namespace __gnu_cxx
 /* Define to 1 if you have the <machine/param.h> header file. */
 /* #undef _GLIBCXX_HAVE_MACHINE_PARAM_H */
  
+#ifndef ARDUINO_ARCH_AVR
 /* Define if mbstate_t exists in wchar.h. */
 #define _GLIBCXX_HAVE_MBSTATE_T 1
+#endif
  
 /* Define to 1 if you have the `memalign' function. */
 #define _GLIBCXX_HAVE_MEMALIGN 1
@@ -1213,9 +1217,11 @@ namespace __gnu_cxx
  
 /* Define to 1 if you have the `qfpclass' function. */
 /* #undef _GLIBCXX_HAVE_QFPCLASS */
- 
+
+#ifndef ARDUINO_ARCH_AVR
 /* Define to 1 if you have the `quick_exit' function. */
 #define _GLIBCXX_HAVE_QUICK_EXIT 1
+#endif
  
 /* Define if readlink is available in <unistd.h>. */
 #define _GLIBCXX_HAVE_READLINK 1
@@ -1684,10 +1690,12 @@ namespace __gnu_cxx
 /* Define if C99 functions or macros in <stdio.h> should be imported in
    <cstdio> in namespace std for C++11. */
 #define _GLIBCXX11_USE_C99_STDIO 1
- 
+
+#ifndef ARDUINO_ARCH_AVR
 /* Define if C99 functions or macros in <stdlib.h> should be imported in
    <cstdlib> in namespace std for C++11. */
 #define _GLIBCXX11_USE_C99_STDLIB 1
+#endif
  
 /* Define if C99 functions or macros in <wchar.h> should be imported in
    <cwchar> in namespace std for C++11. */
@@ -1796,10 +1804,12 @@ namespace __gnu_cxx
    Using compiler builtins for these functions requires corresponding C99
    library functions to be present. */
 #define _GLIBCXX_USE_C99_COMPLEX_TR1 1
- 
+
+#ifndef ARDUINO_ARCH_AVR
 /* Define if C99 functions in <ctype.h> should be imported in <tr1/cctype> in
    namespace std::tr1. */
 #define _GLIBCXX_USE_C99_CTYPE_TR1 1
+#endif
  
 /* Define if C99 functions in <fenv.h> should be imported in <tr1/cfenv> in
    namespace std::tr1. */
@@ -1933,9 +1943,11 @@ namespace __gnu_cxx
 /* Define if utimensat and UTIME_OMIT are available in <sys/stat.h> and
    AT_FDCWD in <fcntl.h>. */
 #define _GLIBCXX_USE_UTIMENSAT 1
- 
+
+#ifndef ARDUINO_ARCH_AVR
 /* Define if code specialized for wchar_t should be used. */
 #define _GLIBCXX_USE_WCHAR_T 1
+#endif
  
 /* Defined if Sleep exists. */
 /* #undef _GLIBCXX_USE_WIN32_SLEEP */

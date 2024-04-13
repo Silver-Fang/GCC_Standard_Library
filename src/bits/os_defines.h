@@ -38,4 +38,6 @@
 // workaround in gthr-posix.h and at link-time for static linking.
 #define _GLIBCXX_GTHREAD_USE_WEAK 0
 #define _GLIBCXX_USE_C99_LONG_LONG_DYNAMIC ARDUINO_ARCH_AVR
+#define _GLIBCXX_USE_C99_DYNAMIC ARDUINO_ARCH_AVR
+#define FP_NAN NAN
 #endif
