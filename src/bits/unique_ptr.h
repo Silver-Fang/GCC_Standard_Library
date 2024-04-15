@@ -1093,7 +1093,7 @@ namespace __detail
     __detail::__invalid_make_unique_t<_Tp>
     make_unique(_Args&&...) = delete;
 
-#if __cplusplus > 201703L
+#if __cplusplus > 201703L || ARDUINO
   /** Create a default-initialied object owned by a `unique_ptr`.
    *  @tparam _Tp A non-array object type.
    *  @returns A `unique_ptr<_Tp>` that owns the new object.
