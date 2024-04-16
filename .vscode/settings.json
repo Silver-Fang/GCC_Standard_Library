@@ -24,6 +24,8 @@
 		"array": "cpp",
 		"compare": "cpp",
 		"memory": "cpp",
-		"*.tcc": "cpp"
+		"*.tcc": "cpp",
+		"version": "cpp",
+		"initializer_list": "cpp"
 	}
 }

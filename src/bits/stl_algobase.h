@@ -254,7 +254,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR
     inline const _Tp&
-    max(const _Tp& __a, const _Tp& __b)
+    (max)(const _Tp& __a, const _Tp& __b)
     {
       // concept requirements
       __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
@@ -278,7 +278,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp, typename _Compare>
     _GLIBCXX14_CONSTEXPR
     inline const _Tp&
-    min(const _Tp& __a, const _Tp& __b, _Compare __comp)
+    (min)(const _Tp& __a, const _Tp& __b, _Compare __comp)
     {
       //return __comp(__b, __a) ? __b : __a;
       if (__comp(__b, __a))
@@ -300,7 +300,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp, typename _Compare>
     _GLIBCXX14_CONSTEXPR
     inline const _Tp&
-    max(const _Tp& __a, const _Tp& __b, _Compare __comp)
+    (max)(const _Tp& __a, const _Tp& __b, _Compare __comp)
     {
       //return __comp(__a, __b) ? __b : __a;
       if (__comp(__a, __b))

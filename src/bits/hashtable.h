@@ -38,6 +38,7 @@
 #if __cplusplus > 201402L
 # include <bits/node_handle.h>
 #endif
+#include <type_traits>
 
 namespace std _GLIBCXX_VISIBILITY(default)
 {

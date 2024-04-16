@@ -37,7 +37,8 @@
 # include <concepts>
 #endif
 #include <bits/concept_check.h> // __glibcxx_function_requires
-
+#undef min
+#undef max
 namespace std _GLIBCXX_VISIBILITY(default)
 {
 _GLIBCXX_BEGIN_NAMESPACE_VERSION
@@ -54,9 +55,9 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
       = invocable<_Gen&> && unsigned_integral<invoke_result_t<_Gen&>>
       && requires
       {
-	{ _Gen::min() } -> same_as<invoke_result_t<_Gen&>>;
-	{ _Gen::max() } -> same_as<invoke_result_t<_Gen&>>;
-	requires bool_constant<(_Gen::min() < _Gen::max())>::value;
+	{ _Gen::(min)() } -> same_as<invoke_result_t<_Gen&>>;
+	{ _Gen::(max)() } -> same_as<invoke_result_t<_Gen&>>;
+	requires bool_constant<(_Gen::(min)() < _Gen::(max)())>::value;
       };
 #endif
 
@@ -65,7 +66,7 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   {
     // Determine whether number is a power of two.
     // This is true for zero, which is OK because we want _Power_of_2(n+1)
-    // to be true if n==numeric_limits<_Tp>::max() and so n+1 wraps around.
+    // to be true if n==numeric_limits<_Tp>::(max)() and so n+1 wraps around.
     template<typename _Tp>
       constexpr bool
       _Power_of_2(_Tp __x)
@@ -185,14 +186,14 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
        * @brief Returns the inclusive lower bound of the distribution range.
        */
       result_type
-      min() const
+      (min)() const
       { return this->a(); }
 
       /**
        * @brief Returns the inclusive upper bound of the distribution range.
        */
       result_type
-      max() const
+      (max)() const
       { return this->b(); }
 
       /**
@@ -292,8 +293,8 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	typedef typename make_unsigned<result_type>::type __utype;
 	typedef typename common_type<_Gresult_type, __utype>::type __uctype;
 
-	constexpr __uctype __urngmin = _UniformRandomBitGenerator::min();
-	constexpr __uctype __urngmax = _UniformRandomBitGenerator::max();
+	constexpr __uctype __urngmin = _UniformRandomBitGenerator::(min)();
+	constexpr __uctype __urngmax = _UniformRandomBitGenerator::(max)();
 	static_assert( __urngmin < __urngmax,
 	    "Uniform random bit generator must define min() < max()");
 	constexpr __uctype __urngrange = __urngmax - __urngmin;

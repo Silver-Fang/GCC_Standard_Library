@@ -762,7 +762,7 @@
 # else
 _Static_assert (0, "IEEE 128-bits long double requires redirection on this platform");
 # endif
-#elif defined __LONG_DOUBLE_MATH_OPTIONAL && defined __NO_LONG_DOUBLE_MATH
+#elif defined __NO_LONG_DOUBLE_MATH
 # define __LDBL_COMPAT 1
 # ifdef __REDIRECT
 #  define __LDBL_REDIR1(name, proto, alias) __REDIRECT (name, proto, alias)

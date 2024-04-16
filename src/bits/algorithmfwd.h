@@ -404,12 +404,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR
     const _Tp&
-    max(const _Tp&, const _Tp&);
+    (max)(const _Tp&, const _Tp&);
 
   template<typename _Tp, typename _Compare>
     _GLIBCXX14_CONSTEXPR
     const _Tp&
-    max(const _Tp&, const _Tp&, _Compare);
+    (max)(const _Tp&, const _Tp&, _Compare);
 
   // max_element
   // merge
@@ -417,12 +417,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR
     const _Tp&
-    min(const _Tp&, const _Tp&);
+    (min)(const _Tp&, const _Tp&);
 
   template<typename _Tp, typename _Compare>
     _GLIBCXX14_CONSTEXPR
     const _Tp&
-    min(const _Tp&, const _Tp&, _Compare);
+    (min)(const _Tp&, const _Tp&, _Compare);
 
   // min_element
 
@@ -450,22 +450,22 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR
     _Tp
-    min(initializer_list<_Tp>);
+    (min)(initializer_list<_Tp>);
 
   template<typename _Tp, typename _Compare>
     _GLIBCXX14_CONSTEXPR
     _Tp
-    min(initializer_list<_Tp>, _Compare);
+    (min)(initializer_list<_Tp>, _Compare);
 
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR
     _Tp
-    max(initializer_list<_Tp>);
+    (max)(initializer_list<_Tp>);
 
   template<typename _Tp, typename _Compare>
     _GLIBCXX14_CONSTEXPR
     _Tp
-    max(initializer_list<_Tp>, _Compare);
+    (max)(initializer_list<_Tp>, _Compare);
 
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR

@@ -497,11 +497,11 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	{ return _Rep(0); }
 
 	static constexpr _Rep
-	max() noexcept
-	{ return numeric_limits<_Rep>::max(); }
+	(max)() noexcept
+	{ return numeric_limits<_Rep>::(max)(); }
 
 	static constexpr _Rep
-	min() noexcept
+	(min)() noexcept
 	{ return numeric_limits<_Rep>::lowest(); }
       };
 
@@ -685,12 +685,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 	{ return duration(duration_values<rep>::zero()); }
 
 	static constexpr duration
-	min() noexcept
-	{ return duration(duration_values<rep>::min()); }
+	(min)() noexcept
+	{ return duration(duration_values<rep>::(min)()); }
 
 	static constexpr duration
-	max() noexcept
-	{ return duration(duration_values<rep>::max()); }
+	(max)() noexcept
+	{ return duration(duration_values<rep>::(max)()); }
 
       private:
 	rep __r;
@@ -1001,12 +1001,12 @@ _GLIBCXX_BEGIN_NAMESPACE_VERSION
 
 	// special values
 	static constexpr time_point
-	min() noexcept
-	{ return time_point(duration::min()); }
+	(min)() noexcept
+	{ return time_point(duration::(min)()); }
 
 	static constexpr time_point
-	max() noexcept
-	{ return time_point(duration::max()); }
+	(max)() noexcept
+	{ return time_point(duration::(max)()); }
 
       private:
 	duration __d;
@@ -1240,7 +1240,7 @@ _GLIBCXX_BEGIN_INLINE_ABI_NAMESPACE(_V2)
       typedef duration::period					period;
       typedef chrono::time_point<system_clock, duration> 	time_point;
 
-      static_assert(system_clock::duration::min()
+      static_assert(system_clock::duration::(min)()
 		    < system_clock::duration::zero(),
 		    "a clock's minimum duration cannot be less than its epoch");
 
@@ -1384,13 +1384,13 @@ _GLIBCXX_END_INLINE_ABI_NAMESPACE(_V2)
 
     /// Literal suffix for durations representing non-integer minutes
     constexpr chrono::duration<long double, ratio<60,1>>
-    operator""min(long double __mins)
+    operator""(min)(long double __mins)
     { return chrono::duration<long double, ratio<60,1>>{__mins}; }
 
     /// Literal suffix for durations of type `std::chrono::minutes`
     template <char... _Digits>
       constexpr chrono::minutes
-      operator""min()
+      operator""(min)()
       { return __check_overflow<chrono::minutes, _Digits...>(); }
 
     /// Literal suffix for durations representing non-integer seconds

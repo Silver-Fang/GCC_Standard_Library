@@ -2543,7 +2543,7 @@ _GLIBCXX_END_INLINE_ABI_NAMESPACE(_V2)
       typedef _Temporary_buffer<_BidirectionalIterator, _ValueType> _TmpBuf;
       // __merge_adaptive will use a buffer for the smaller of
       // [first,middle) and [middle,last).
-      _TmpBuf __buf(__first, std::min(__len1, __len2));
+      _TmpBuf __buf(__first, std::(min)(__len1, __len2));
 
       if (__builtin_expect(__buf.size() == __buf.requested_size(), true))
 	std::__merge_adaptive
@@ -2687,7 +2687,7 @@ _GLIBCXX_END_INLINE_ABI_NAMESPACE(_V2)
 				       __result, __comp);
 	  __first += __two_step;
 	}
-      __step_size = std::min(_Distance(__last - __first), __step_size);
+      __step_size = std::(min)(_Distance(__last - __first), __step_size);
 
       std::__move_merge(__first, __first + __step_size,
 			__first + __step_size, __last, __result, __comp);
@@ -3667,7 +3667,7 @@ _GLIBCXX_END_INLINE_ABI_NAMESPACE(_V2)
     clamp(const _Tp& __val, const _Tp& __lo, const _Tp& __hi)
     {
       __glibcxx_assert(!(__hi < __lo));
-      return std::min(std::max(__val, __lo), __hi);
+      return std::(min)(std::(max)(__val, __lo), __hi);
     }
 
   /**
@@ -3687,7 +3687,7 @@ _GLIBCXX_END_INLINE_ABI_NAMESPACE(_V2)
     clamp(const _Tp& __val, const _Tp& __lo, const _Tp& __hi, _Compare __comp)
     {
       __glibcxx_assert(!__comp(__hi, __lo));
-      return std::min(std::max(__val, __lo, __comp), __hi, __comp);
+      return std::(min)(std::(max)(__val, __lo, __comp), __hi, __comp);
     }
 #endif // C++17
 #endif // C++14
@@ -3702,7 +3702,7 @@ _GLIBCXX_END_INLINE_ABI_NAMESPACE(_V2)
    *  @return  A pair (i, j) with i and j uniformly distributed
    *           over [0, __b0) and [0, __b1), respectively.
    *
-   *  Requires: __b0 * __b1 <= __g.max() - __g.min().
+   *  Requires: __b0 * __b1 <= __g\.(max)() - __g\.(min)().
    *
    *  Using uniform_int_distribution with a range that is very
    *  small relative to the range of the generator ends up wasting
@@ -3762,7 +3762,7 @@ _GLIBCXX_END_INLINE_ABI_NAMESPACE(_V2)
       typedef typename common_type<typename _Gen::result_type, __ud_type>::type
 	__uc_type;
 
-      const __uc_type __urngrange = __g.max() - __g.min();
+      const __uc_type __urngrange = __g\.(max)() - __g\.(min)();
       const __uc_type __urange = __uc_type(__last - __first);
 
       if (__urngrange / __urange >= __urange)
@@ -5772,7 +5772,7 @@ _GLIBCXX_BEGIN_NAMESPACE_ALGO
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR
     inline _Tp
-    min(initializer_list<_Tp> __l)
+    (min)(initializer_list<_Tp> __l)
     {
       __glibcxx_requires_irreflexive(__l.begin(), __l.end());
       return *_GLIBCXX_STD_A::__min_element(__l.begin(), __l.end(),
@@ -5782,7 +5782,7 @@ _GLIBCXX_BEGIN_NAMESPACE_ALGO
   template<typename _Tp, typename _Compare>
     _GLIBCXX14_CONSTEXPR
     inline _Tp
-    min(initializer_list<_Tp> __l, _Compare __comp)
+    (min)(initializer_list<_Tp> __l, _Compare __comp)
     {
       __glibcxx_requires_irreflexive_pred(__l.begin(), __l.end(), __comp);
       return *_GLIBCXX_STD_A::__min_element(__l.begin(), __l.end(),
@@ -5792,7 +5792,7 @@ _GLIBCXX_BEGIN_NAMESPACE_ALGO
   template<typename _Tp>
     _GLIBCXX14_CONSTEXPR
     inline _Tp
-    max(initializer_list<_Tp> __l)
+    (max)(initializer_list<_Tp> __l)
     {
       __glibcxx_requires_irreflexive(__l.begin(), __l.end());
       return *_GLIBCXX_STD_A::__max_element(__l.begin(), __l.end(),
@@ -5802,7 +5802,7 @@ _GLIBCXX_BEGIN_NAMESPACE_ALGO
   template<typename _Tp, typename _Compare>
     _GLIBCXX14_CONSTEXPR
     inline _Tp
-    max(initializer_list<_Tp> __l, _Compare __comp)
+    (max)(initializer_list<_Tp> __l, _Compare __comp)
     {
       __glibcxx_requires_irreflexive_pred(__l.begin(), __l.end(), __comp);
       return *_GLIBCXX_STD_A::__max_element(__l.begin(), __l.end(),
@@ -5858,12 +5858,12 @@ _GLIBCXX_BEGIN_NAMESPACE_ALGO
 
       __distrib_type __d{};
       _Size __unsampled_sz = std::distance(__first, __last);
-      __n = std::min(__n, __unsampled_sz);
+      __n = std::(min)(__n, __unsampled_sz);
 
       // If possible, we use __gen_two_uniform_ints to efficiently produce
       // two random numbers using a single distribution invocation:
 
-      const __uc_type __urngrange = __g.max() - __g.min();
+      const __uc_type __urngrange = __g\.(max)() - __g\.(min)();
       if (__urngrange / __uc_type(__unsampled_sz) >= __uc_type(__unsampled_sz))
         // I.e. (__urngrange >= __unsampled_sz * __unsampled_sz) but without
 	// wrapping issues.
